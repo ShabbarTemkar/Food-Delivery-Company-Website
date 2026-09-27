@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FastBite | Order Food in Minutes</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <nav>
+      <div class="logo">FastBite</div>
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#restaurants">Restaurants</a></li>
+        <li><a href="#deals">Deals</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="btn-cart" id="open-cart-btn" aria-label="View Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="cart-count">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hungry? Order Food in Minutes!</h1>
+        <p>Get 20% off your first order with code <strong>FASTBITE20</strong></p>
+        <a href="#restaurants" class="btn-cta">Order Now</a>
+      </div>
+    </section>
+
+    <!-- Restaurant Listings Section -->
+    <section id="restaurants" class="restaurants">
+      <h2>Popular Restaurants</h2>
+      <div class="restaurant-grid">
+        <div class="restaurant-card" data-restaurant="Burger Shack">
+          <img
+            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+            alt="Burger Shack"
+          />
+          <div class="restaurant-info">
+            <h3>Burger Shack</h3>
+            <p><i class="fas fa-star"></i> 4.5 <span>(500+ reviews)</span></p>
+            <button class="btn-view-menu" data-target="burger-shack">View Menu</button>
+          </div>
+        </div>
+
+        <div class="restaurant-card" data-restaurant="Bella Italia Pizza">
+          <img
+            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
+            alt="Bella Italia Pizza"
+          />
+          <div class="restaurant-info">
+            <h3>Bella Italia Pizza</h3>
+            <p><i class="fas fa-star"></i> 4.8 <span>(1.2k+ reviews)</span></p>
+            <button class="btn-view-menu" data-target="bella-italia">View Menu</button>
+          </div>
+        </div>
+
+        <div class="restaurant-card" data-restaurant="Tokyo Bento & Ramen">
+          <img
+            src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+            alt="Tokyo Bento & Ramen"
+          />
+          <div class="restaurant-info">
+            <h3>Tokyo Bento & Ramen</h3>
+            <p><i class="fas fa-star"></i> 4.7 <span>(840+ reviews)</span></p>
+            <button class="btn-view-menu" data-target="tokyo-bento">View Menu</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotional Deals Banner -->
+    <section id="deals" class="deals-banner">
+      <div class="deals-content">
+        <h2>Weekly Hot Deals 🔥</h2>
+        <p>Save up to 40% on top-rated combo boxes and family meal bundles every weekday.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Menu Modal -->
+  <div class="modal" id="menu-modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button class="close-btn" id="close-modal-btn" aria-label="Close modal">&times;</button>
+      <h2 id="modal-restaurant-title">Restaurant Menu</h2>
+      <div class="menu-items-list" id="modal-menu-list">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Slide-In Sidebar -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" aria-label="Cart Sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="cart-close" id="close-cart-btn" aria-label="Close Cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items-container">
+      <p class="empty-cart-msg">Your cart is currently empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span>$<span id="cart-total">0.00</span></span>
+      </div>
+      <button class="btn-checkout" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      <p><i class="fas fa-phone-alt"></i> Call us: (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> Email: hello@fastbite.com</p>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,529 @@
+/* Design Variables & Base Resets */
+:root {
+  --primary-color: #ea580c;
+  --primary-hover: #c2410c;
+  --dark-color: #0f172a;
+  --light-bg: #f8fafc;
+  --surface-card: #ffffff;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 16px 32px rgba(15, 23, 42, 0.12);
+  --transition: all 0.25s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--dark-color);
+  background-color: var(--light-bg);
+  line-height: 1.6;
+}
+
+/* Header & Sticky Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+/* Cart Button in Navbar */
+.btn-cart {
+  position: relative;
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.btn-cart:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--dark-color);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero Section */
+.hero {
+  height: 75vh;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80")
+      center/cover no-repeat;
+  color: #ffffff;
+  padding: 0 1.5rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-cta {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 0.85rem 2.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-cta:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Restaurant Listings (CSS Grid) */
+.restaurants {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+}
+
+.restaurants h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.restaurant-card {
+  background: var(--surface-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.restaurant-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-info p {
+  color: #f59e0b;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.restaurant-info p span {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.btn-view-menu {
+  margin-top: auto;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-view-menu:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Deals Section */
+.deals-banner {
+  background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+}
+
+.deals-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #9a3412;
+}
+
+/* Menu Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(15, 23, 42, 0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--surface-card);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.85rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--dark-color);
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.menu-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.menu-item-details h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.menu-item-details p {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.btn-add-to-cart {
+  background-color: var(--dark-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-add-to-cart:hover {
+  background-color: var(--primary-color);
+}
+
+/* Cart Slide-In Sidebar */
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  z-index: 250;
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 380px;
+  height: 100%;
+  background-color: var(--surface-card);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 300;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart-close {
+  background: none;
+  border: none;
+  font-size: 1.85rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.cart-items {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empty-cart-msg {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 2rem;
+}
+
+.cart-line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart-line-details span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-remove-item {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.cart-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--light-bg);
+}
+
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.btn-checkout {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-checkout:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: #ffffff;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-content p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.footer-content i {
+  color: var(--primary-color);
+  margin-right: 0.4rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.social-links a {
+  color: #94a3b8;
+  font-size: 1.35rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--surface-card);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    gap: 1.25rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+}
